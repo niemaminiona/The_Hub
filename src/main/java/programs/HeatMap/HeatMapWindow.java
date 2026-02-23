@@ -1,5 +1,7 @@
 package programs.HeatMap;
 
+import Launcher.Launcher;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -43,7 +45,7 @@ public class HeatMapWindow extends JFrame {
         }
 
         // Open the Launcher
-        new Launcher.Launcher();
+        new Launcher();
 
         closingAll = false;
     }

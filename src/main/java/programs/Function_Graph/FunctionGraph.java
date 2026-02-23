@@ -1,5 +1,7 @@
 package programs.Function_Graph;
 
+import Launcher.Launcher;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -14,6 +16,13 @@ public class FunctionGraph extends JFrame{
     // java is a beautiful language where you cant make default parameters in constructors
     private void creator(){
         this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+        addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                new Launcher();
+                dispose();
+            }
+        });
         this.setTitle("Functions Graph");
 
         // creates panel where functions are drawn in
@@ -270,15 +279,6 @@ public class FunctionGraph extends JFrame{
         this.setJMenuBar(menuBar);
         this.add(graphicPanel);
         this.pack();
-
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                new Launcher.Launcher();
-                dispose();
-            }
-        });
-
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }

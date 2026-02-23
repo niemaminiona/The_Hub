@@ -3,6 +3,8 @@ package Launcher;
 import programs.Function_Graph.FunctionGraph;
 import programs.HeatMap.HeatMapWindow;
 import Templates.*;
+import programs.Light_Simulation.LightSimulationGame;
+
 import javax.swing.*;
 
 public class Launcher extends JFrame {
@@ -22,6 +24,14 @@ public class Launcher extends JFrame {
             this.dispose();
         });
         mainPanel.add(functionGraphButton);
+
+        JButton lightSimulationButton = new JButton("Light Simulation");
+        lightSimulationButton.addActionListener(_ -> {
+            new LightSimulationGame();
+            this.dispose();
+        });
+        mainPanel.add(lightSimulationButton);
+
 
         this.add(mainPanel);
         this.pack();
