@@ -1,4 +1,4 @@
-package programs.Function_Graph;
+package Programs.Function_Graph;
 
 import Launcher.Launcher;
 

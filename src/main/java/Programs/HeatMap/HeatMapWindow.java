@@ -1,4 +1,4 @@
-package programs.HeatMap;
+package Programs.HeatMap;
 
 import Launcher.Launcher;
 

@@ -1,4 +1,4 @@
-package programs.Light_Simulation;
+package Programs.Light_Simulation;
 
 import java.awt.*;
 import java.awt.geom.Line2D;

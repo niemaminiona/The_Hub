@@ -1,10 +1,8 @@
-package programs.Light_Simulation;
+package Programs.Light_Simulation;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowFocusListener;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EditLightPopWindow extends JFrame {
 

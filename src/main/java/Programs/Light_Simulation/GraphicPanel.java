@@ -1,4 +1,4 @@
-package programs.Light_Simulation;
+package Programs.Light_Simulation;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,9 +1,10 @@
 package Templates;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class HorizontalStackPanel extends JPanel {
     public HorizontalStackPanel() {
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new FlowLayout(FlowLayout.CENTER));
     }
 }

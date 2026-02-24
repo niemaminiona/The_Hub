@@ -1,4 +1,7 @@
-package programs.HeatMap;
+package Programs.HeatMap;
+
+import Templates.VerticalStackPanel;
+import Templates.HorizontalStackPanel;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -6,10 +9,10 @@ import java.awt.event.WindowEvent;
 
 public class SettingsWindow extends JFrame {
     public SettingsWindow(HeatMapGraphicPanel heatMapPanel){
-        JPanel mainPanel = new Templates.HorizontalStackPanel();
+        JPanel mainPanel = new VerticalStackPanel();
 
         // --- Buttons row ---
-        JPanel buttonPanel = new Templates.FlowStackPanel();
+        JPanel buttonPanel = new HorizontalStackPanel();
         JButton randomizeButton, countButton, countNeighboursButton;
 
         buttonPanel.add(randomizeButton = new Templates.ButtonT1("Randomize"));
@@ -22,7 +25,7 @@ public class SettingsWindow extends JFrame {
         countNeighboursButton.addActionListener(_ -> heatMapPanel.countHeatMapByNeighbors());
 
         // --- Slider row ---
-        JPanel sliderPanel = new Templates.FlowStackPanel();
+        JPanel sliderPanel = new HorizontalStackPanel();
         JLabel sliderValueLabel = new JLabel("Threshold value: " + heatMapPanel.activeThreshold);
         JSlider thresholdSlider = new JSlider(1, heatMapPanel.diversity - 1, heatMapPanel.activeThreshold);
         thresholdSlider.addChangeListener(_ -> {
@@ -33,7 +36,7 @@ public class SettingsWindow extends JFrame {
         sliderPanel.add(thresholdSlider);
 
         // --- Check row ---
-        JPanel checkPanel = new Templates.FlowStackPanel();
+        JPanel checkPanel = new HorizontalStackPanel();
         JCheckBox drawOutLineCheckBox = new JCheckBox();
         drawOutLineCheckBox.setSelected(heatMapPanel.drawOutLine);
         drawOutLineCheckBox.addActionListener(_ -> {
@@ -44,7 +47,7 @@ public class SettingsWindow extends JFrame {
         checkPanel.add(drawOutLineCheckBox);
 
         // --- window Buttons row ---
-        JPanel windowButtonPanel = new Templates.FlowStackPanel();
+        JPanel windowButtonPanel = new HorizontalStackPanel();
         JButton logWindowButton, patternWindowButton, advancedSettingsButton;
 
         windowButtonPanel.add(advancedSettingsButton = new Templates.ButtonT1("Adv Settings"));

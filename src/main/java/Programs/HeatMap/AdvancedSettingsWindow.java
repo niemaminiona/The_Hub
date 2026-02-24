@@ -1,4 +1,7 @@
-package programs.HeatMap;
+package Programs.HeatMap;
+
+import Templates.VerticalStackPanel;
+import Templates.HorizontalStackPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -7,7 +10,7 @@ import java.awt.event.WindowEvent;
 
 public class AdvancedSettingsWindow extends JFrame {
     public AdvancedSettingsWindow(HeatMapGraphicPanel heatMapPanel){
-        JPanel mainPanel = new Templates.HorizontalStackPanel();
+        JPanel mainPanel = new VerticalStackPanel();
         Dimension spacing = new Dimension(8, 0);
 
         // map size slider
@@ -34,7 +37,7 @@ public class AdvancedSettingsWindow extends JFrame {
         });
         mapSizeSetButton.setFocusable(false);
 
-        JPanel mapSizePanel = new Templates.FlowStackPanel();
+        JPanel mapSizePanel = new HorizontalStackPanel();
         mapSizePanel.setLayout(new BoxLayout(mapSizePanel, BoxLayout.X_AXIS));
         mapSizePanel.add(new JLabel("Map Size: "));
         mapSizePanel.add(mapSizeLabel);
@@ -70,7 +73,7 @@ public class AdvancedSettingsWindow extends JFrame {
         });
         plotSizeSetButton.setFocusable(false);
 
-        JPanel plotSizePanel = new Templates.FlowStackPanel();
+        JPanel plotSizePanel = new HorizontalStackPanel();
         plotSizePanel.setLayout(new BoxLayout(plotSizePanel, BoxLayout.X_AXIS));
         plotSizePanel.add(new JLabel("Plot Size: "));
         plotSizePanel.add(plotSizeLabel);
