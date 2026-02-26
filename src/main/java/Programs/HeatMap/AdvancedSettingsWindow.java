@@ -5,8 +5,12 @@ import Templates.HorizontalStackPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+
+import static Programs.HeatMap.HeatMapWindow.closeAllAndOpenLauncher;
 
 public class AdvancedSettingsWindow extends JFrame {
     public AdvancedSettingsWindow(HeatMapGraphicPanel heatMapPanel){

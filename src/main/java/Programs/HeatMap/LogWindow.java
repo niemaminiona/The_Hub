@@ -1,6 +1,8 @@
 package Programs.HeatMap;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class LogWindow extends JFrame {
 

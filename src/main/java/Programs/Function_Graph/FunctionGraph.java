@@ -23,6 +23,17 @@ public class FunctionGraph extends JFrame{
                 dispose();
             }
         });
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                    new Launcher();
+                    dispose();
+                }
+            }
+        });
+
         this.setTitle("Functions Graph");
 
         // creates panel where functions are drawn in

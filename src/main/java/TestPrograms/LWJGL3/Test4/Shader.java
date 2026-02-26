@@ -1,10 +1,13 @@
-package TestPrograms.LWJGL3.Test3;
+package TestPrograms.LWJGL3.Test4;
 
+import org.joml.Matrix4f;
+import org.lwjgl.BufferUtils;
 import org.lwjgl.opengl.GL20;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.FloatBuffer;
 
 public class Shader {
     private final int program;
@@ -32,7 +35,6 @@ public class Shader {
             System.exit(1);
         }
 
-
         GL20.glAttachShader(program, vs);
         GL20.glAttachShader(program, fs);
 
@@ -56,6 +58,36 @@ public class Shader {
     public void bind(){
         GL20.glUseProgram(program);
     }
+
+    public void setUniformFloat(String name, float value){
+        int location = GL20.glGetUniformLocation(program, name);
+        if(location != -1){
+            GL20.glUniform1f(location, value);
+        }
+    }
+
+    public void setUniformInt(String name, int value){
+        int location = GL20.glGetUniformLocation(program, name);
+        if(location != -1){
+            GL20.glUniform1i(location, value);
+        }
+    }
+
+    public void setUniformMatrix4f(String name, Matrix4f value){
+        int location = GL20.glGetUniformLocation(program, name);
+        FloatBuffer buffer = BufferUtils.createFloatBuffer(16);
+        value.get(buffer);
+        if(location != -1){
+            GL20.glUniformMatrix4fv(location, false, buffer);
+        }
+    }
+
+    public void quickShaderRGB(float red, float green, float blue){
+        setUniformFloat("red", red);
+        setUniformFloat("green", green);
+        setUniformFloat("blue", blue);
+    }
+
 
     private String readFile(String filename){
         StringBuilder string = new StringBuilder();

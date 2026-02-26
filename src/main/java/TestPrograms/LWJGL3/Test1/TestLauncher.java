@@ -29,7 +29,7 @@ public class TestLauncher implements Runnable {
 //        GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_CORE_PROFILE);
         // Requests *any profile*
 //        GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_ANY_PROFILE);
-        // Requests *compat profile*
+        // Requests *compatible profile*
         GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_PROFILE, GLFW.GLFW_OPENGL_COMPAT_PROFILE);
 
         long window = GLFW.glfwCreateWindow(windowWidth, windowHeight, "Render Engine - Movement Test (WSAD)", 0, 0);
@@ -53,26 +53,25 @@ public class TestLauncher implements Runnable {
         // Loads OpenGL functions for the current window context.
         GL.createCapabilities();
 
-        float[] verticies1 = new float[]{
+        float[] vertices = new float[]{
             -0.25f,-0.25f, 0,
              0, 0.25f, 0,
              0.25f,-0.25f, 0
         };
 
-        float[] verticies2 = new float[]{
-            -0.1f,0.15f, 0,
-            0.1f,-0.15f, 0,
-            0.1f, 0.15f, 0,
+//        float[] vertices = new float[]{
+//            -0.1f,0.15f, 0,
+//            0.1f,-0.15f, 0,
+//            0.1f, 0.15f, 0,
+//
+//            -0.1f,0.15f, 0,
+//            0.1f,-0.15f, 0,
+//            -0.1f, -0.15f, 0,
+//
+//        };
 
-            -0.1f,0.15f, 0,
-            0.1f,-0.15f, 0,
-            -0.1f, -0.15f, 0,
 
-        };
-
-        float[] vertices = verticies2;
-
-        Model model = new Model(verticies1);
+        Model model = new Model(vertices);
 
         // show the window
         GLFW.glfwShowWindow(window);
@@ -81,7 +80,7 @@ public class TestLauncher implements Runnable {
         GLFW.glfwSwapInterval(GLFW.GLFW_TRUE);
 
         // sets key callback, when ESC is pressed, window closes
-        GLFW.glfwSetKeyCallback(window, (win, key, scancode, action, mods) -> {
+        GLFW.glfwSetKeyCallback(window, (win, key, _, action, _) -> {
             if(key == GLFW.GLFW_KEY_ESCAPE && action == GLFW.GLFW_PRESS){
                 GLFW.glfwSetWindowShouldClose(win, true);
             }
@@ -125,7 +124,7 @@ public class TestLauncher implements Runnable {
         new Launcher();
     }
 
-    private float speed = 0.025f;
+    private final float speed = 0.025f;
 
     private float[] moveFloatPointsToRight(float[] vertices){
         for(int i = 0; i < vertices.length; i+=3){

@@ -6,13 +6,15 @@ import Templates.*;
 import Programs.Light_Simulation.LightSimulationGame;
 
 import javax.swing.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Launcher extends JFrame {
     public Launcher(){
         JPanel mainPanel = new VerticalStackPanel();
 
         // Main modes panel with buttons
-        JPanel mainModesPanel = getMainModesJPanel();
+        mainPanel.add(getMainModesJPanel());
 
         // Test modes panel with its buttons
         JPanel testModesPanel = new HorizontalStackPanel();
@@ -21,13 +23,42 @@ public class Launcher extends JFrame {
                 "Test 0 - Initialization Test",
                 "Test 1 - Movement Test (WSAD)",
                 "Test 2 - Rotation Test",
-                "Test 3 - Shader Test"
+                "Test 3 - Shader Test",
+                "Test 4 - JOML Matrix Test"
         };
 
         JComboBox<String> lwjglTestPicker = new JComboBox<>(lwjglTestNames);
         testModesPanel.add(lwjglTestPicker);
 
+        JButton lwjgl3_TestGoButton = getJButton(lwjglTestPicker);
+        testModesPanel.add(lwjgl3_TestGoButton);
+
+        // packs everything together
+
+        mainPanel.add(testModesPanel);
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                    System.exit(0);
+                }
+            }
+        });
+
+        setFocusable(true);
+        add(mainPanel);
+        pack();
+        setResizable(false);
+        setTitle("The Hub");
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setVisible(true);
+    }
+
+    private JButton getJButton(JComboBox<String> lwjglTestPicker) {
         JButton lwjgl3_TestGoButton = new JButton("Run Test");
+        lwjgl3_TestGoButton.setFocusPainted(false);
         lwjgl3_TestGoButton.addActionListener(_ -> {
             int selectedIndex = lwjglTestPicker.getSelectedIndex();
 
@@ -36,6 +67,7 @@ public class Launcher extends JFrame {
                 case 1 -> new TestPrograms.LWJGL3.Test1.TestLauncher();
                 case 2 -> new TestPrograms.LWJGL3.Test2.TestLauncher();
                 case 3 -> new TestPrograms.LWJGL3.Test3.TestLauncher();
+                case 4 -> new TestPrograms.LWJGL3.Test4.TestLauncher();
                 default -> null;
             };
 
@@ -44,19 +76,7 @@ public class Launcher extends JFrame {
                 dispose();
             }
         });
-        testModesPanel.add(lwjgl3_TestGoButton);
-
-        // packs everything together
-        mainPanel.add(mainModesPanel);
-        mainPanel.add(testModesPanel);
-
-        this.add(mainPanel);
-        this.pack();
-        this.setResizable(false);
-        this.setTitle("The Hub");
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setVisible(true);
+        return lwjgl3_TestGoButton;
     }
 
     private JPanel getMainModesJPanel() {
@@ -67,6 +87,7 @@ public class Launcher extends JFrame {
             new HeatMapWindow();
             this.dispose();
         });
+        heatMapButton.setFocusPainted(false);
         mainModesPanel.add(heatMapButton);
 
         JButton functionGraphButton = new JButton("Function Graph");
@@ -74,6 +95,7 @@ public class Launcher extends JFrame {
             new FunctionGraph();
             this.dispose();
         });
+        functionGraphButton.setFocusPainted(false);
         mainModesPanel.add(functionGraphButton);
 
         JButton lightSimulationButton = new JButton("Light Simulation");
@@ -81,6 +103,7 @@ public class Launcher extends JFrame {
             new LightSimulationGame();
             this.dispose();
         });
+        lightSimulationButton.setFocusPainted(false);
         mainModesPanel.add(lightSimulationButton);
         return mainModesPanel;
     }

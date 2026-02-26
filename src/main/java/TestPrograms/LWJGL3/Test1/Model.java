@@ -18,7 +18,7 @@ public class Model {
     private int draw_count;
 
     // OpenGL ID of the vertex buffer
-    private int v_id;
+    private final int v_id;
 
     private float[] vertices;
 

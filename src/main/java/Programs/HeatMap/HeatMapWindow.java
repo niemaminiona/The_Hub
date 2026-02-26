@@ -4,6 +4,8 @@ import Launcher.Launcher;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
@@ -24,6 +26,15 @@ public class HeatMapWindow extends JFrame {
             @Override
             public void windowClosing(WindowEvent e) {
                 closeAllAndOpenLauncher();
+            }
+        });
+
+        addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if(e.getKeyCode() == KeyEvent.VK_ESCAPE){
+                    closeAllAndOpenLauncher();
+                }
             }
         });
     }
