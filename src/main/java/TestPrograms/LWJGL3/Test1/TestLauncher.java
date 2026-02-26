@@ -53,22 +53,22 @@ public class TestLauncher implements Runnable {
         // Loads OpenGL functions for the current window context.
         GL.createCapabilities();
 
-        float[] vertices = new float[]{
-            -0.25f,-0.25f, 0,
-             0, 0.25f, 0,
-             0.25f,-0.25f, 0
-        };
-
 //        float[] vertices = new float[]{
-//            -0.1f,0.15f, 0,
-//            0.1f,-0.15f, 0,
-//            0.1f, 0.15f, 0,
-//
-//            -0.1f,0.15f, 0,
-//            0.1f,-0.15f, 0,
-//            -0.1f, -0.15f, 0,
-//
+//            -0.25f,-0.25f, 0,
+//             0, 0.25f, 0,
+//             0.25f,-0.25f, 0
 //        };
+
+        float[] vertices = new float[]{
+            -0.1f,0.15f, 0,
+            0.1f,-0.15f, 0,
+            0.1f, 0.15f, 0,
+
+            -0.1f,0.15f, 0,
+            0.1f,-0.15f, 0,
+            -0.1f, -0.15f, 0,
+
+        };
 
 
         Model model = new Model(vertices);

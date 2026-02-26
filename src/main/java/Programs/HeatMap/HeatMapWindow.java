@@ -231,22 +231,6 @@ class HeatMapGraphicPanel extends JPanel{
         repaint();
     }
 
-    // method that out writes map
-    private void writeTable(HeatCell[][] map) {
-        System.out.println("===========================================");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        for (int y = 0; y < map.length; y++) {
-            for (int x = 0; x < map[y].length; x++) {
-                System.out.print(map[x][y].value + " ");
-            }
-            System.out.println();
-        }
-    }
-
     public void adjustWindowSize(){
         this.setPreferredSize(new Dimension(mapSize * plotSize, mapSize * plotSize));
         Window mainWindow = SwingUtilities.getWindowAncestor(this); // this code finds ancestor window

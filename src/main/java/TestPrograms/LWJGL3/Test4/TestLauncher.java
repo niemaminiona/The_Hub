@@ -76,7 +76,7 @@ public class TestLauncher implements Runnable {
             }
         });
 
-        float angle = 0.1f;
+        float angle = 0.2f;
 
         while(!GLFW.glfwWindowShouldClose(window)){
             GLFW.glfwPollEvents();

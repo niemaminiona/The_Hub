@@ -83,6 +83,6 @@ public class SettingsWindow extends JFrame {
         this.setResizable(false);
         this.setVisible(true);
 
-        this.setAlwaysOnTop(true);
+        requestFocusInWindow();
     }
 }
