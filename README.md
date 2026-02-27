@@ -17,7 +17,7 @@
 
 > [!IMPORTANT]
 > It doesn't have any runnable yet.  
-> Clone the repo to IntelliJ IDEA and run the main class in:
+> Clone the repo to <a href="https://www.jetbrains.com/idea/download/?section=windows"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/IntelliJ_IDEA_icon.svg" width="12"/>IntelliJ IDEA</a> and run the mainclass in:
 >
 > `The_Hub/src/main/java/Launcher/Main`
 
