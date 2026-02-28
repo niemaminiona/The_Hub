@@ -5,12 +5,8 @@ import Templates.HorizontalStackPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
-import static Programs.HeatMap.HeatMapWindow.closeAllAndOpenLauncher;
 
 public class AdvancedSettingsWindow extends JFrame {
     public AdvancedSettingsWindow(HeatMapGraphicPanel heatMapPanel){
@@ -21,9 +17,7 @@ public class AdvancedSettingsWindow extends JFrame {
         JLabel mapSizeLabel = new JLabel("(" + heatMapPanel.mapSize + ")");
 
         JSlider mapSizeSlider = new JSlider(1, 1000, heatMapPanel.mapSize);
-        mapSizeSlider.addChangeListener(_ -> {
-            mapSizeLabel.setText("(" + mapSizeSlider.getValue() + ")");
-        });
+        mapSizeSlider.addChangeListener(_ -> mapSizeLabel.setText("(" + mapSizeSlider.getValue() + ")"));
 
         JButton mapSizeMinusButton = new JButton("-");
         mapSizeMinusButton.addActionListener(_ -> mapSizeSlider.setValue(mapSizeSlider.getValue() - 1));
@@ -57,9 +51,7 @@ public class AdvancedSettingsWindow extends JFrame {
         JLabel plotSizeLabel = new JLabel("(" + heatMapPanel.plotSize + ")");
 
         JSlider plotSizeSlider = new JSlider(1, 50, heatMapPanel.plotSize);
-        plotSizeSlider.addChangeListener(_ -> {
-            plotSizeLabel.setText("(" + plotSizeSlider.getValue() + ")");
-        });
+        plotSizeSlider.addChangeListener(_ -> plotSizeLabel.setText("(" + plotSizeSlider.getValue() + ")"));
 
         JButton plotSizeMinusButton = new JButton("-");
         plotSizeMinusButton.addActionListener(_ -> plotSizeSlider.setValue(plotSizeSlider.getValue() - 1));

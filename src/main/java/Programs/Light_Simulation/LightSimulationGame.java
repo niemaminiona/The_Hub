@@ -1,8 +1,6 @@
 package Programs.Light_Simulation;
 
 import Launcher.Launcher;
-import Programs.HeatMap.HeatMapWindow;
-
 import javax.swing.*;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;

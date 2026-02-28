@@ -71,15 +71,6 @@ class HeatMapGraphicPanel extends JPanel{
     public boolean drawOutLine = false;
     private HeatCell[][] mainHeatCellsMap;
 
-    /// Constructors ///
-    public HeatMapGraphicPanel(){
-        this(10,50);
-    }
-
-    public HeatMapGraphicPanel(int mapSize){
-        this(mapSize,50);
-    }
-
     /// Actual constructor ///
     public HeatMapGraphicPanel(int mapSize, int plotSize){
         this.mapSize = mapSize;

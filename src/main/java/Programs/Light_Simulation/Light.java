@@ -26,16 +26,8 @@ public class Light {
         blockers.add(new Line2D.Float(rectStart.x, rectEnd.y, rectEnd.x, rectEnd.y));
     }
 
-    public Light() {
-        this(100, 100, 25, 100, 300);
-    }
-
     public Light(int X, int Y) {
         this(X, Y, 25, 100, 300);
-    }
-
-    public Light(int X, int Y, int radius) {
-        this(X, Y, radius, 100, 300);
     }
 
     public Light(int X, int Y, int radius, int beamsAmount, int length) {
@@ -78,17 +70,7 @@ public class Light {
                            (int) lightBeam.getX2(), (int) lightBeam.getY2());
             }
             else {
-                class BlockedBeam{
-                    public final Point point;
-                    public final String type;
-                    public final Line2D line;
-
-                    public BlockedBeam(Point point, Line2D line, String type){
-                        this.point = point;
-                        this.line = line;
-                        this.type = type;
-                    }
-                }
+                record BlockedBeam(Point point, Line2D line, String type) { }
                 List<BlockedBeam> listOfIntersectedPoints = new ArrayList<>();
 
                 for (var blockingLine : blockers) {
@@ -120,7 +102,7 @@ public class Light {
                         case "mirror":
                             g.setColor(Color.yellow);
                             g.drawLine((int) lightBeam.getX1(), (int) lightBeam.getY1(), smallestPoint.point.x, smallestPoint.point.y);
-                            int reflectedLength = (int)(getLength(startingPoint, new Point(endX, endY)) - getLength(startingPoint, smallestPoint.point));
+//                            int reflectedLength = (int)(getLength(startingPoint, new Point(endX, endY)) - getLength(startingPoint, smallestPoint.point));
 
                             double x1 = startingPoint.x,
                                     y1 = startingPoint.y,
@@ -175,7 +157,7 @@ public class Light {
     }
 
     private double getLength(Point startingPoint, Point endPoint){
-        // simple pythagoras theorem
+        // simple Pythagoras theorem
         double x1 = startingPoint.x,
                 y1 = startingPoint.y,
                 x2 = endPoint.x,

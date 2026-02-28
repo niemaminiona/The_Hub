@@ -53,12 +53,6 @@ public class TestLauncher implements Runnable {
         // Loads OpenGL functions for the current window context.
         GL.createCapabilities();
 
-//        float[] vertices = new float[]{
-//            -0.25f,-0.25f, 0,
-//             0, 0.25f, 0,
-//             0.25f,-0.25f, 0
-//        };
-
         float[] vertices = new float[]{
             -0.1f,0.15f, 0,
             0.1f,-0.15f, 0,
@@ -91,16 +85,16 @@ public class TestLauncher implements Runnable {
             GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
 
             if(GLFW.glfwGetKey(window, GLFW.GLFW_KEY_A) == GLFW.GLFW_PRESS){
-                vertices = moveFloatPointsToLeft(vertices);
+                moveFloatPointsToLeft(vertices);
             }
             if(GLFW.glfwGetKey(window, GLFW.GLFW_KEY_D) == GLFW.GLFW_PRESS){
-                vertices = moveFloatPointsToRight(vertices);
+                moveFloatPointsToRight(vertices);
             }
             if(GLFW.glfwGetKey(window, GLFW.GLFW_KEY_W) == GLFW.GLFW_PRESS){
-                vertices = moveFloatPointsToUp(vertices);
+                moveFloatPointsToUp(vertices);
             }
             if(GLFW.glfwGetKey(window, GLFW.GLFW_KEY_S) == GLFW.GLFW_PRESS){
-                vertices = moveFloatPointsToDown(vertices);
+                moveFloatPointsToDown(vertices);
             }
 
             model.setVertices(vertices);
@@ -126,31 +120,27 @@ public class TestLauncher implements Runnable {
 
     private final float speed = 0.025f;
 
-    private float[] moveFloatPointsToRight(float[] vertices){
+    private void moveFloatPointsToRight(float[] vertices){
         for(int i = 0; i < vertices.length; i+=3){
             vertices[i] += speed;
         }
-        return vertices;
     }
 
-    private float[] moveFloatPointsToLeft(float[] vertices){
+    private void moveFloatPointsToLeft(float[] vertices){
         for(int i = 0; i < vertices.length; i+=3){
             vertices[i] -= speed;
         }
-        return vertices;
     }
 
-    private float[] moveFloatPointsToUp(float[] vertices){
+    private void moveFloatPointsToUp(float[] vertices){
         for(int i = 1; i < vertices.length; i+=3){
             vertices[i] += speed;
         }
-        return vertices;
     }
 
-    private float[] moveFloatPointsToDown(float[] vertices){
+    private void moveFloatPointsToDown(float[] vertices){
         for(int i = 1; i < vertices.length; i+=3){
             vertices[i] -= speed;
         }
-        return vertices;
     }
 }

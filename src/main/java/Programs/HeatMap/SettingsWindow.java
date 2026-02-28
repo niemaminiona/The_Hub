@@ -4,8 +4,6 @@ import Templates.VerticalStackPanel;
 import Templates.HorizontalStackPanel;
 
 import javax.swing.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
